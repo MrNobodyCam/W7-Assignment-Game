@@ -24,29 +24,5 @@ public class PlayerController : MonoBehaviour
         m_Rigidbody.AddForce(m_Movement * speed);
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.CompareTag("PickUp"))
-        {
-            //other.gameObject.SetActive(false);
-            //Destroy(other.gameObject);
-            other.gameObject.GetComponent<Renderer>().material.color = Color.red;
-        }
-    }
-
-    //void OnTriggerStay(Collider other)
-    //{
-    //    if (other.gameObject.CompareTag("PickUp"))
-    //    {
-    //        other.gameObject.GetComponent<Renderer>().material.color = Color.blue;
-    //    }
-    //}
-
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("PickUp"))
-        {
-            other.gameObject.GetComponent<Renderer>().material.color = Color.white;
-        }
-    }
+    // All pickup-related trigger methods have been removed
 }
