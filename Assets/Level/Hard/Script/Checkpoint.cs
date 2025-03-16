@@ -21,9 +21,9 @@ public class Checkpoint : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !isActivated)
+        if (other.CompareTag("Player"))
         {
-            // Save checkpoint data
+            // Save checkpoint position
             PlayerPrefs.SetFloat("CheckpointX", transform.position.x);
             PlayerPrefs.SetFloat("CheckpointY", transform.position.y);
             PlayerPrefs.SetFloat("CheckpointZ", transform.position.z);
@@ -36,19 +36,6 @@ public class Checkpoint : MonoBehaviour
             isActivated = true;
             
             Debug.Log("Checkpoint " + checkpointID + " reached!");
-            
-            // NOTE: No code here should freeze the game
         }
-    }
-    
-    // This ensures we don't continuously trigger the checkpoint
-    private void OnTriggerStay(Collider other)
-    {
-        // Intentionally empty to avoid any processing while player is in the trigger
-    }
-    
-    private void OnTriggerExit(Collider other)
-    {
-        // Optional: Add code here if needed when player exits the trigger
     }
 }
